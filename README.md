@@ -263,6 +263,10 @@ The input data (`data/raw/movies_data.csv`) should contain the following feature
 ### Step-by-Step Guide
 
 1. **Environment Setup**:
+   ```bash
+   # Clone the project repository using this link:
+      git clone https://github.com/Eng-Nhshl/Box-Office-Revenue-Prediction.git
+   ```
 
    ```bash
    # Create and activate virtual environment
