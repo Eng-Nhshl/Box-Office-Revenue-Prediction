@@ -1,0 +1,71 @@
+2025-05-14 19:13:51,804 - __main__ - INFO - Directory logs created or already exists.
+2025-05-14 19:13:51,804 - __main__ - INFO - Directory data/raw created or already exists.
+2025-05-14 19:13:51,805 - __main__ - INFO - Directory data/processed created or already exists.
+2025-05-14 19:13:51,805 - __main__ - INFO - Directory models created or already exists.
+2025-05-14 19:13:51,805 - __main__ - INFO - Directory reports created or already exists.
+2025-05-14 19:13:51,805 - __main__ - INFO - Directory reports/figures created or already exists.
+2025-05-14 19:13:51,807 - __main__ - INFO - Starting Box Office Revenue Prediction pipeline
+2025-05-14 19:13:51,807 - __main__ - INFO - Loading data
+2025-05-14 19:13:51,807 - src.data.data_loader - INFO - Loading data from data/raw/movies_data.csv
+2025-05-14 19:13:51,828 - src.data.data_loader - INFO - Successfully loaded data with shape (100, 11)
+2025-05-14 19:13:51,828 - __main__ - INFO - Preprocessing data
+2025-05-14 19:13:51,829 - src.data.preprocessor - INFO - Starting data preprocessing
+2025-05-14 19:13:51,832 - src.data.preprocessor - INFO - Identified feature types: 6 numerical, 4 categorical, 2 date, 0 text
+2025-05-14 19:13:51,832 - src.data.preprocessor - INFO - Handling missing values
+2025-05-14 19:13:51,834 - src.data.preprocessor - INFO - Transforming features
+2025-05-14 19:13:51,834 - src.data.preprocessor - INFO - Extracting date components from release_date
+2025-05-14 19:13:51,840 - src.data.preprocessor - INFO - Extracting date components from runtime
+2025-05-14 19:13:51,843 - src.data.preprocessor - INFO - Label encoding title
+2025-05-14 19:13:51,844 - src.data.preprocessor - INFO - Label encoding genres
+2025-05-14 19:13:51,845 - src.data.preprocessor - INFO - One-hot encoding original_language
+2025-05-14 19:13:51,846 - src.data.preprocessor - INFO - Handling outliers
+2025-05-14 19:13:51,855 - src.data.preprocessor - INFO - Data split into train (80 samples) and test (20 samples) sets
+2025-05-14 19:13:51,855 - src.data.preprocessor - INFO - Saving processed data
+2025-05-14 19:13:51,859 - src.data.preprocessor - INFO - Processed data saved successfully
+2025-05-14 19:13:51,860 - __main__ - INFO - Performing feature engineering
+2025-05-14 19:13:51,860 - src.features.feature_engineering - INFO - Applying feature engineering transformations
+2025-05-14 19:13:51,860 - src.features.feature_engineering - INFO - Creating domain-specific features
+2025-05-14 19:13:51,861 - src.features.feature_engineering - INFO - Creating budget-related features
+2025-05-14 19:13:51,861 - src.features.feature_engineering - INFO - Creating popularity-related features
+2025-05-14 19:13:51,862 - src.features.feature_engineering - INFO - Creating vote-related features
+2025-05-14 19:13:51,864 - src.features.feature_engineering - INFO - Creating release date-related features
+2025-05-14 19:13:51,866 - src.features.feature_engineering - INFO - Creating genre-related features
+2025-05-14 19:13:51,867 - src.features.feature_engineering - INFO - Adding interaction features
+2025-05-14 19:13:51,867 - src.features.feature_engineering - INFO - Fitting polynomial features transformer
+2025-05-14 19:13:51,871 - src.features.feature_engineering - INFO - Applying feature engineering transformations
+2025-05-14 19:13:51,871 - src.features.feature_engineering - INFO - Creating domain-specific features
+2025-05-14 19:13:51,872 - src.features.feature_engineering - INFO - Creating budget-related features
+2025-05-14 19:13:51,873 - src.features.feature_engineering - INFO - Creating popularity-related features
+2025-05-14 19:13:51,874 - src.features.feature_engineering - INFO - Creating vote-related features
+2025-05-14 19:13:51,875 - src.features.feature_engineering - INFO - Creating release date-related features
+2025-05-14 19:13:51,877 - src.features.feature_engineering - INFO - Creating genre-related features
+2025-05-14 19:13:51,877 - src.features.feature_engineering - INFO - Adding interaction features
+2025-05-14 19:13:51,878 - src.features.feature_engineering - INFO - Fitting polynomial features transformer
+2025-05-14 19:13:51,881 - __main__ - INFO - Training ensemble model
+2025-05-14 19:13:51,882 - src.models.model_trainer - INFO - Training ensemble model
+2025-05-14 19:13:51,882 - src.models.model_trainer - INFO - Training ensemble model
+2025-05-14 19:13:52,995 - src.models.model_trainer - INFO - Ensemble model trained successfully
+2025-05-14 19:13:52,996 - src.models.model_trainer - INFO - Saving model
+2025-05-14 19:13:53,002 - src.models.model_trainer - INFO - Model saved to models/ensemble_model.joblib
+2025-05-14 19:13:53,002 - __main__ - INFO - Evaluating model
+2025-05-14 19:13:53,003 - src.models.model_evaluator - INFO - Evaluating model
+2025-05-14 19:13:53,017 - src.models.model_evaluator - INFO - Model evaluation metrics:
+2025-05-14 19:13:53,017 - src.models.model_evaluator - INFO - MSE: 236539744.0000
+2025-05-14 19:13:53,018 - src.models.model_evaluator - INFO - RMSE: 15379.8486
+2025-05-14 19:13:53,018 - src.models.model_evaluator - INFO - MAE: 4380.0498
+2025-05-14 19:13:53,018 - src.models.model_evaluator - INFO - R2: 1.0000
+2025-05-14 19:13:53,019 - src.models.model_evaluator - INFO - MAPE: 0.0062
+2025-05-14 19:13:53,019 - src.models.model_evaluator - INFO - Saving evaluation metrics
+2025-05-14 19:13:53,021 - src.models.model_evaluator - INFO - Evaluation metrics saved to reports/evaluation_metrics.csv
+2025-05-14 19:13:53,022 - src.models.model_evaluator - INFO - Getting feature importance
+2025-05-14 19:13:53,026 - src.models.model_evaluator - INFO - Saving feature importance
+2025-05-14 19:13:53,028 - src.models.model_evaluator - INFO - Feature importance saved to reports/feature_importance.csv
+2025-05-14 19:13:53,988 - src.models.model_evaluator - INFO - Feature importance plot saved to reports/figures/feature_importance.png
+2025-05-14 19:13:53,988 - __main__ - INFO - Generating visualizations
+2025-05-14 19:13:53,988 - src.visualization.visualize - INFO - Plotting predicted vs. actual values
+2025-05-14 19:13:55,677 - src.visualization.visualize - INFO - Predictions plot saved to reports/figures/predictions.png and predictions_interactive.html
+2025-05-14 19:13:55,678 - src.visualization.visualize - INFO - Plotting top 20 feature importance
+2025-05-14 19:13:56,002 - src.visualization.visualize - INFO - Feature importance plot saved to reports/figures/feature_importance.png and feature_importance_interactive.html
+2025-05-14 19:13:56,003 - src.visualization.visualize - INFO - Plotting error distribution
+2025-05-14 19:13:56,987 - src.visualization.visualize - INFO - Error distribution plot saved to reports/figures/error_distribution.png and error_distribution_interactive.html
+2025-05-14 19:13:56,987 - __main__ - INFO - Pipeline completed successfully
